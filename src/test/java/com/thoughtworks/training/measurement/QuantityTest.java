@@ -250,13 +250,13 @@ public class QuantityTest {
         assertEquals(new Quantity(2.0, Unit.LITER), oneLiter.add(anotherOneLiter));
     }
 
-    ////////////////
+    //////////////// ADding
     @Test
     void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IOException {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
-        assertEquals(new Quantity(4.779999999999999, Unit.LITER), oneGallon.add(oneLiter));
+        assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
     }
 
     @Test
@@ -264,27 +264,30 @@ public class QuantityTest {
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
 
-        assertEquals(new Quantity(4.779999999999999, Unit.LITER), oneLiter.add(oneGallon));
+        assertEquals(new Quantity(4.78, Unit.LITER), oneLiter.add(oneGallon));
     }
 
+    //Checking Equal or Not For(Length to Volume)
     @Test
-    void givenOneLiterAndOneInch_WhenEquals_ThenShouldBeNotEquals() {
+    void givenOneInchAndOneLiter_WhenEquals_ThenShouldBeNotEquals() {
         Quantity oneInch = new Quantity(1.0, Unit.INCH);
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
         assertNotEquals(oneInch, oneLiter);
     }
 
-//    @Test
-//    void givenOneLitterAndOneInch_WhenEquals_ThenShouldBeNotEquals() {
-//        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
-//        Quantity oneInch = new Quantity(1.0, Unit.INCH);
-//
-//        assertNotEquals(oneLiter, oneInch);
-//    }
+    @Test
+    void givenOneFootAndOneLiter_WhenEquals_ThenShouldBeNotEquals() {
+        Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
+        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+
+
+        assertNotEquals(oneFoot, oneLiter);
+    }
+
 
     @Test
-    void givenOneGallonAndOneInch_WhenEquals_ThenShouldBeNotEquals() {
+    void givenOneInchAndOneGallon_WhenEquals_ThenShouldBeNotEquals() {
         Quantity oneInch = new Quantity(1.0, Unit.INCH);
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
 
@@ -292,13 +295,24 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneGallonAndOneFoot_WhenEquals_ThenShouldBeNotEquals() {
+    void givenOneFootAndOneGallon_WhenEquals_ThenShouldBeNotEquals() {
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
 
         assertNotEquals(oneFoot, oneGallon);
     }
 
+    //Checking Equal or Not For(volume to Length)
+    @Test
+    void givenOneGallonAndOneFoot_WhenEquals_ThenShouldBeNotEquals() {
+        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
+        Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
+
+        assertNotEquals(oneGallon, oneFoot);
+    }
+
+
+    ///Exception
     @Test
     void givenOneInchAndOneGallon_WhenAdd_ThenShouldNotBeAdded() {
         Quantity oneInch = new Quantity(1.0, Unit.INCH);

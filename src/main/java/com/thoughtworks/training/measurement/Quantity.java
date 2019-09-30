@@ -38,8 +38,7 @@ public class Quantity {
             if (lengthList.contains(this.unit) && volumeList.contains(that.unit)) {
                 return false;
             }
-
-            return this.unit.conversionToBase(this.value) == that.unit.conversionToBase(that.value);
+            return this.unit.conversionToBase(this.value) == (double) Math.round(that.unit.conversionToBase(that.value) * 100) / 100;
         }
 
         return false;
