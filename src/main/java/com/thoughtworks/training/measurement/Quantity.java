@@ -1,5 +1,7 @@
 package com.thoughtworks.training.measurement;
 
+import java.io.IOException;
+
 public class Quantity {
     private final double value;
     private final Unit unit;
@@ -27,15 +29,12 @@ public class Quantity {
         return false;
     }
 
-    public Quantity add(Quantity other) {
-
-//
-//        if (this.unit == Unit.INCH) {
+    public Quantity add(Quantity other) throws IOException {
+        if(this.unit==Unit.INCH && other.unit==Unit.LITER)
+        {
+            throw new IOException();
+        }
         return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.INCH);
-//        }
-//        if (this.unit == Unit.LITER) {
-//        return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.LITER);
-//    }
     }
 
     @Override
