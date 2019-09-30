@@ -209,7 +209,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturn() {
+    void givenOneLiterAndAnotherOneLiter_WheEqual_ThenShouldBeEqual() {
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
         Quantity anotherOneLiter = new Quantity(1.0, Unit.LITER);
 
