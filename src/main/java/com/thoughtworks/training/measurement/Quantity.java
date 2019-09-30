@@ -1,7 +1,6 @@
 package com.thoughtworks.training.measurement;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Quantity {
     private final double value;
@@ -11,9 +10,6 @@ public class Quantity {
         this.value = value;
         this.unit = unit;
     }
-
-    ArrayList<Unit> lengthList = new ArrayList<Unit>();
-    ArrayList<Unit> volumeList = new ArrayList<Unit>();
 
     @Override
     public boolean equals(Object other) {
@@ -25,19 +21,17 @@ public class Quantity {
 
             Quantity that = (Quantity) other;
 
-            lengthList.add(Unit.INCH);
-            lengthList.add(Unit.FOOT);
-            lengthList.add(Unit.YARD);
-
-            volumeList.add(Unit.GALLON);
-            volumeList.add(Unit.LITER);
-
-            // If this and that are of different units (in terms of their types) then return false
-            // this.unit, that.unit
-
-            if (lengthList.contains(this.unit) && volumeList.contains(that.unit)) {
+            // If my unit is a length type and other unit is a volume type then return false
+            if (unit.lengthType().contains(this.unit) && unit.volumeType().contains(that.unit)) {
                 return false;
             }
+
+            // If my unit is a volume type and other unit is a length type then return false
+            if (unit.volumeType().contains(this.unit) && unit.lengthType().contains(that.unit)) {
+                return false;
+            }
+
+
             return this.unit.conversionToBase(this.value) == (double) Math.round(that.unit.conversionToBase(that.value) * 100) / 100;
         }
 
