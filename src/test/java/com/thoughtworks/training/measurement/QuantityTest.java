@@ -292,15 +292,23 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneInchAndOneGallon_WhenEquals_ThenShouldNotBeEquals() {
+    void givenOneInchAndOneGallon_WhenAdd_ThenShouldNotBeAdded() {
         Quantity oneInch = new Quantity(1.0, Unit.INCH);
         Quantity OneLiter = new Quantity(1.0, Unit.LITER);
 
         assertThrows(IOException.class, () -> {
             oneInch.add(OneLiter);
         });
+    }
 
+    @Test
+    void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotBeAdded() {
+        Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
+        Quantity OneGallon = new Quantity(1.0, Unit.GALLON);
 
+        assertThrows(IOException.class, () -> {
+            oneFoot.add(OneGallon);
+        });
     }
 
 }

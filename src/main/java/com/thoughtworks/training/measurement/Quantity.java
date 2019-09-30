@@ -30,7 +30,7 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) throws IOException {
-        if(this.unit==Unit.INCH && other.unit==Unit.LITER)
+        if(this.unit==Unit.INCH && other.unit==Unit.LITER  || this.unit == Unit.FOOT && other.unit == Unit.GALLON)
         {
             throw new IOException();
         }
