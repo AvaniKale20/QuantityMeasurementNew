@@ -198,10 +198,10 @@ public class QuantityTest {
 
     /*
     Next Requirement is 1 gallon = 3.78liters
-    1 gallon + 1Liter= 4.78 Liters
+    1 gallon + 1Liter= 4.78
      */
     @Test
-    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturn() {
+    void givenOneGallonAndAnotherOneGallon_WhenEqual_ThenShouldBeReturnEqual() {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
         Quantity anotherOneGallon = new Quantity(1.0, Unit.GALLON);
 

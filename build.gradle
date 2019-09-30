@@ -1,8 +1,7 @@
 plugins {
     id 'java'
-    id 'maven-publish'
 }
-group 'com.thoughtworks.training'
+group 'com.thoughtworks.bootcamp'
 version '1.0-SNAPSHOT'
 sourceCompatibility = JavaVersion.VERSION_11
 repositories {
@@ -17,15 +16,4 @@ dependencies {
     testCompile 'org.mockito:mockito-core:1.+'
     testCompile 'org.junit.jupiter:junit-jupiter:5.4.1'
     testCompile 'org.assertj:assertj-core:1.0.0'
-}
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.thoughtworks.training'
-            artifactId = 'CompareLengths'
-            version = '1.1'
-
-            from components.java
-        }
-    }
 }
