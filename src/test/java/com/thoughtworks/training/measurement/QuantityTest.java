@@ -275,6 +275,14 @@ public class QuantityTest {
         assertNotEquals(oneInch, oneLiter);
     }
 
+//    @Test
+//    void givenOneLitterAndOneInch_WhenEquals_ThenShouldBeNotEquals() {
+//        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+//        Quantity oneInch = new Quantity(1.0, Unit.INCH);
+//
+//        assertNotEquals(oneLiter, oneInch);
+//    }
+
     @Test
     void givenOneGallonAndOneInch_WhenEquals_ThenShouldBeNotEquals() {
         Quantity oneInch = new Quantity(1.0, Unit.INCH);
