@@ -4,9 +4,10 @@ import java.util.ArrayList;
 
 public enum Unit {
 
-    INCH(1), FOOT(12), YARD(36), GALLON(3.78), LITER(1);
+    INCH(1,"LengthType"), FOOT(12,"LengthType"), YARD(36,"LengthType"), GALLON(3.78,"VolumeType"), LITER(1,"VolumeType");
 
     private double conversionFactor;
+    private String unitType;
 
     ArrayList<Unit> lengthList = new ArrayList<>();
 
@@ -26,8 +27,9 @@ public enum Unit {
         return volumeList;
     }
 
-    Unit(double conversionFactor) {
+    Unit(double conversionFactor,String unitType) {
         this.conversionFactor = conversionFactor;
+        this.unitType=unitType;
 
 
     }
