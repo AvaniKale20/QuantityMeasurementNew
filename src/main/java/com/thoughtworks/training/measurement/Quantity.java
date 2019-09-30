@@ -23,8 +23,14 @@ public class Quantity {
     }
 
     public Quantity add(Quantity other) {
-        return new Quantity(this.unit.conversionToBase(this.value)+ other.unit.conversionToBase(other.value), Unit.INCH);
+
+        if (this.unit == Unit.INCH) {
+            return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.INCH);
+        }
+//        if (this.unit == Unit.LITER) ;
+        return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.LITER);
     }
+
 
     @Override
     public String toString() {
