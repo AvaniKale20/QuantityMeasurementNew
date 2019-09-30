@@ -16,13 +16,19 @@ public class Quantity {
         }
 
         if (other instanceof Quantity) {
+
             Quantity that = (Quantity) other;
+            if (this.unit == Unit.INCH && that.unit == Unit.LITER) {
+                return false;
+            }
             return this.unit.conversionToBase(this.value) == that.unit.conversionToBase(that.value);
         }
+
         return false;
     }
 
     public Quantity add(Quantity other) {
+
 
         if (this.unit == Unit.INCH) {
             return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.INCH);
