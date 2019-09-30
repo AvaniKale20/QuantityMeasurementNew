@@ -217,7 +217,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturn() {
+    void givenOneLiterAndOneGallon_WhenEqual_ThenShouldNotBeEqual() {
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
 
