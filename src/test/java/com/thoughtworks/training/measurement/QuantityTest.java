@@ -2,9 +2,6 @@ package com.thoughtworks.training.measurement;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-import java.io.InvalidClassException;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityTest {
@@ -160,7 +157,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenZeroInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IOException {
+    void givenZeroInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
         Quantity zeroInch = new Quantity(0.0, Unit.INCH);
         Quantity anotherZeroInch = new Quantity(0.0, Unit.INCH);
 
@@ -168,7 +165,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IOException {
+    void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
         Quantity twoInch = new Quantity(2.0, Unit.INCH);
         Quantity anotherTwoInch = new Quantity(2.0, Unit.INCH);
 
@@ -176,7 +173,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() throws IOException {
+    void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
         Quantity OneFeet = new Quantity(1.0, Unit.FOOT);
         Quantity TwoInches = new Quantity(2.0, Unit.INCH);
 
@@ -184,7 +181,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenTwoInchesAndOneFoott_WhenAdd_ThenShouldBeFourInches() throws IOException {
+    void givenTwoInchesAndOneFoott_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
         Quantity twoInches = new Quantity(2.0, Unit.INCH);
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
 
@@ -192,7 +189,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneFootAndOneFoot_WhenAdd_ThenShouldBeReturnTwoFoot() throws IOException {
+    void givenOneFootAndOneFoot_WhenAdd_ThenShouldBeReturnTwoFoot() throws IllegalArgumentException {
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
         Quantity oneFoot1 = new Quantity(1.0, Unit.FOOT);
 
@@ -397,7 +394,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws IOException {
+    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws IllegalArgumentException {
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
         Quantity anotherOneLiter = new Quantity(1.0, Unit.LITER);
 
@@ -405,7 +402,7 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IOException {
+    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
 
@@ -413,9 +410,10 @@ public class QuantityTest {
     }
 
     @Test
-    void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IOException {
+    void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
         Quantity oneLiter = new Quantity(1.0, Unit.LITER);
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
+
 
         assertEquals(new Quantity(4.78, Unit.LITER), oneLiter.add(oneGallon));
     }
