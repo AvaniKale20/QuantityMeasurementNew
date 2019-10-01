@@ -35,7 +35,7 @@ public class Quantity {
     public Quantity add(Quantity other) throws IllegalArgumentException {
         {
             if (!this.unit.unitType.equals(other.unit.unitType)) {
-                throw new IllegalArgumentException(this.unit.unitType + "&" + other.unit.unitType + "are not be same"); // TODO - But not this exception. No message in the exception... assert the message as well
+                throw new IllegalArgumentException(this.unit.unitType + "&" + other.unit.unitType + "are not be same");
             }
             return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), unit.baseConverter());
 //            return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.INCH); // TODO - generalize.
