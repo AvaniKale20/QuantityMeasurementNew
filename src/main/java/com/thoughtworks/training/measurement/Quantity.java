@@ -6,10 +6,13 @@ public class Quantity {
     private final double value;
     private final Unit unit;
 
+
     public Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
+
     }
+
 
     @Override
     public boolean equals(Object other) {
@@ -18,21 +21,22 @@ public class Quantity {
         }
 
         if (other instanceof Quantity) {
-
             Quantity that = (Quantity) other;
 
+
             // If my unit is a length type and other unit is a volume type then return false
-            if (unit.lengthUnits().contains(this.unit) && unit.volumeUnits().contains(that.unit)) {
+            if (this.unit.unitType.equals("LengthType") && that.unit.unitType.equals("VolumeType")) {
                 return false;
             }
-
+//            if (!this.unit.unitType.equals(that.unit.unitType)) {
+//                return false;
+//            }
             // If my unit is a volume type and other unit is a length type then return false
-            if (unit.volumeUnits().contains(this.unit) && unit.lengthUnits().contains(that.unit)) {
+            if (this.unit.unitType.equals("VolumeType") && that.unit.unitType.equals("LengthType")) {
                 return false;
             }
             return this.unit.conversionToBase(this.value) == (double) Math.round(that.unit.conversionToBase(that.value) * 100) / 100;
         }
-
         return false;
     }
 
