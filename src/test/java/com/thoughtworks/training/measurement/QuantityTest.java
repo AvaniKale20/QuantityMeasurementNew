@@ -367,6 +367,59 @@ public class QuantityTest {
         }, oneInch.unit.unitType + "&" + oneLiter.unit.unitType + "are not be same");
     }
 
+    @Test
+    void givenOneFootAndOneLiter_WhenAdd_ThenShouldNotBeAdded() {
+        Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
+        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            oneFoot.add(oneLiter);
+        }, oneFoot.unit.unitType + "&" + oneLiter.unit.unitType + "are not be same");
+    }
+//
+//    @Test
+//    void givenOneGallonAndOneFootWhenAdd_ThenShouldNotBeAdded() {
+//        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
+//        Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
+//
+//        assertThrows(IllegalArgumentException.class, () -> {
+//            oneGallon.add(oneFoot);
+//        }, oneGallon.unit.unitType + "&" + oneFoot.unit.unitType + "are not be same");
+//    }
+//
+//    @Test
+//    void givenOneLiterAndOneFootWhenAdd_ThenShouldNotBeAdded() {
+//        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+//        Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
+//
+//
+//        assertThrows(IllegalArgumentException.class, () -> {
+//            oneLiter.add(oneFoot);
+//        }, oneLiter.unit.unitType + "&" + oneFoot.unit.unitType + "are not be same");
+//
+//    }
+//
+//    @Test
+//    void givenOneLiterAndOneInchWhenAdd_ThenShouldNotBeAdded() {
+//        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+//        Quantity oneInch = new Quantity(1.0, Unit.INCH);
+//
+//        assertThrows(IllegalArgumentException.class, () -> {
+//            oneLiter.add(oneInch);
+//        }, oneLiter.unit.unitType + "&" + oneInch.unit.unitType + "are not be same");
+//    }
+//
+//    @Test
+//    void givenOneGallonAndOneInchWhenAdd_ThenShouldNotBeAdded() {
+//        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
+//        Quantity oneInch = new Quantity(1.0, Unit.INCH);
+//
+//        assertThrows(IllegalArgumentException.class, () -> {
+//            oneGallon.add(oneInch);
+//        }, oneGallon.unit.unitType + "&" + oneInch.unit.unitType + "are not be same");
+//    }
+//
+
 
 }
 
