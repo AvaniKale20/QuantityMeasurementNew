@@ -387,6 +387,7 @@ public class QuantityTest {
         }, oneGallon.unit.unitType + "&" + oneInch.unit.unitType + "are not be same");
     }
 
+    //Adding Two unit type
     @Test
     void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() {
         Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
@@ -401,6 +402,14 @@ public class QuantityTest {
         Quantity anotherOneLiter = new Quantity(1.0, Unit.LITER);
 
         assertEquals(new Quantity(2.0, Unit.LITER), oneLiter.add(anotherOneLiter));
+    }
+
+    @Test
+    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IOException {
+        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
+        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+
+        assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
     }
 
 
