@@ -23,7 +23,6 @@ public class Quantity {
         if (other instanceof Quantity) {
             Quantity that = (Quantity) other;
 
-
             // If my unit is a length type and other unit is a volume type then return false
             // If my unit is a volume type and other unit is a length type then return false
             if (!this.unit.unitType.equals(that.unit.unitType)) {
