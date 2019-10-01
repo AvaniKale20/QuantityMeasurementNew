@@ -3,6 +3,7 @@ package com.thoughtworks.training.measurement;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.io.InvalidClassException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -341,20 +342,31 @@ public class QuantityTest {
         Quantity oneInch = new Quantity(1.0, Unit.INCH);
         Quantity OneLiter = new Quantity(1.0, Unit.LITER);
 
-        assertThrows(IOException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             oneInch.add(OneLiter);
-        });
+        }, oneInch.unit.unitType + "&" + OneLiter.unit.unitType + "are not be same");
     }
 
     @Test
     void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotBeAdded() {
         Quantity oneFoot = new Quantity(1.0, Unit.FOOT);
-        Quantity OneGallon = new Quantity(1.0, Unit.GALLON);
+        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
 
-        assertThrows(IOException.class, () -> {
-            oneFoot.add(OneGallon);
-        });
+        assertThrows(IllegalArgumentException.class, () -> {
+            oneFoot.add(oneGallon);
+        }, oneFoot.unit.unitType + "&" + oneGallon.unit.unitType + "are not be same");
     }
+
+    @Test
+    void givenOneInchAndOneLiter_WhenAdd_ThenShouldNotBeAdded() {
+        Quantity oneInch = new Quantity(1.0, Unit.INCH);
+        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            oneInch.add(oneLiter);
+        }, oneInch.unit.unitType + "&" + oneLiter.unit.unitType + "are not be same");
+    }
+
 
 }
 

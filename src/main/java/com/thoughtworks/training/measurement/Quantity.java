@@ -1,10 +1,8 @@
 package com.thoughtworks.training.measurement;
 
-import java.io.IOException;
-
 public class Quantity {
     private final double value;
-    private final Unit unit;
+    public final Unit unit;
 
 
     public Quantity(double value, Unit unit) {
@@ -12,7 +10,6 @@ public class Quantity {
         this.unit = unit;
 
     }
-
 
     @Override
     public boolean equals(Object other) {
@@ -33,11 +30,15 @@ public class Quantity {
         return false;
     }
 
-    public Quantity add(Quantity other) throws IOException {
-        if (this.unit == Unit.INCH && other.unit == Unit.LITER || this.unit == Unit.FOOT && other.unit == Unit.GALLON) {
-            throw new IOException();
+
+
+    public Quantity add(Quantity other) throws IllegalArgumentException {
+        {
+            if (!this.unit.unitType.equals(other.unit.unitType)) {
+                throw new IllegalArgumentException(this.unit.unitType + "&" + other.unit.unitType + "are not be same"); // TODO - But not this exception. No message in the exception... assert the message as well
+            }
+            return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.INCH); // TODO - generalize.
         }
-        return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), Unit.INCH);
     }
 
     @Override
