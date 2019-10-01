@@ -395,6 +395,14 @@ public class QuantityTest {
         assertEquals(new Quantity(2.0, Unit.GALLON), oneGallon.add(anotherOneGallon));
     }
 
+    @Test
+    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws IOException {
+        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+        Quantity anotherOneLiter = new Quantity(1.0, Unit.LITER);
+
+        assertEquals(new Quantity(2.0, Unit.LITER), oneLiter.add(anotherOneLiter));
+    }
+
 
 }
 
