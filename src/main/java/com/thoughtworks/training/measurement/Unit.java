@@ -4,32 +4,39 @@ import java.util.ArrayList;
 
 public enum Unit {
 
-    INCH(1,"LengthType"), FOOT(12,"LengthType"), YARD(36,"LengthType"), GALLON(3.78,"VolumeType"), LITER(1,"VolumeType");
+    INCH(1, "LengthType"), CM(1, "LengthType"), FOOT(12, "LengthType"), YARD(36, "LengthType"), GALLON(3.78, "VolumeType"), LITER(1, "VolumeType");
 
     private double conversionFactor;
-    private String unitType;
+    public String unitType;
 
-    ArrayList<Unit> lengthList = new ArrayList<>();
 
-    ArrayList<Unit> volumeList = new ArrayList<>();
+    ArrayList<Unit> lengthUnits() {
 
-    ArrayList<Unit> lengthType() {
-        lengthList.add(Unit.INCH);
-        lengthList.add(Unit.FOOT);
-        lengthList.add(Unit.YARD);
-        return lengthList;
+        ArrayList<Unit> units = new ArrayList<>();
+        //iteration
+        for (Unit unit : Unit.values()) {
+            if (unit.unitType.equals("LengthType")) {
+                units.add(unit);
+            }
+        }
+        return units;
     }
 
-    ArrayList<Unit> volumeType() {
-        volumeList.add(Unit.GALLON);
-        volumeList.add(Unit.LITER);
+    ArrayList<Unit> volumeUnits() {
 
-        return volumeList;
+        ArrayList<Unit> units = new ArrayList<>();
+        for (Unit unit : Unit.values()) {
+            if (unit.unitType.equals("VolumeType")) {
+                units.add(unit);
+            }
+        }
+        return units;
     }
 
-    Unit(double conversionFactor,String unitType) {
+
+    Unit(double conversionFactor, String unitType) {
         this.conversionFactor = conversionFactor;
-        this.unitType=unitType;
+        this.unitType = unitType;
 
 
     }
@@ -37,4 +44,4 @@ public enum Unit {
     double conversionToBase(double value) {
         return value * conversionFactor;
     }
-    }
+}

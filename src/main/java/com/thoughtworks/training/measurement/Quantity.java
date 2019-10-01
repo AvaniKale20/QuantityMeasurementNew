@@ -22,16 +22,14 @@ public class Quantity {
             Quantity that = (Quantity) other;
 
             // If my unit is a length type and other unit is a volume type then return false
-            if (unit.lengthType().contains(this.unit) && unit.volumeType().contains(that.unit)) {
+            if (unit.lengthUnits().contains(this.unit) && unit.volumeUnits().contains(that.unit)) {
                 return false;
             }
 
             // If my unit is a volume type and other unit is a length type then return false
-            if (unit.volumeType().contains(this.unit) && unit.lengthType().contains(that.unit)) {
+            if (unit.volumeUnits().contains(this.unit) && unit.lengthUnits().contains(that.unit)) {
                 return false;
             }
-
-
             return this.unit.conversionToBase(this.value) == (double) Math.round(that.unit.conversionToBase(that.value) * 100) / 100;
         }
 
