@@ -412,6 +412,13 @@ public class QuantityTest {
         assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
     }
 
+    @Test
+    void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IOException {
+        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
+        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
+
+        assertEquals(new Quantity(4.78, Unit.LITER), oneLiter.add(oneGallon));
+    }
 
 }
 
