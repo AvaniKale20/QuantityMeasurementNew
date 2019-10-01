@@ -235,38 +235,6 @@ public class QuantityTest {
         assertFalse(oneGallon.equals(oneLiter));
     }
 
-//    @Test
-//    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() throws IOException {
-//        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
-//        Quantity anotherOneGallon = new Quantity(1.0, Unit.GALLON);
-//
-//        assertEquals(new Quantity(2.0, Unit.GALLON), oneGallon.add(anotherOneGallon));
-//    }
-//
-//    @Test
-//    void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws IOException {
-//        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
-//        Quantity anotherOneLiter = new Quantity(1.0, Unit.LITER);
-//
-//        assertEquals(new Quantity(2.0, Unit.LITER), oneLiter.add(anotherOneLiter));
-//    }
-//
-//    //////////////// ADding
-//    @Test
-//    void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IOException {
-//        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
-//        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
-//
-//        assertEquals(new Quantity(4.78, Unit.LITER), oneGallon.add(oneLiter));
-//    }
-//
-//    @Test
-//    void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IOException {
-//        Quantity oneLiter = new Quantity(1.0, Unit.LITER);
-//        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
-//
-//        assertEquals(new Quantity(4.78, Unit.LITER), oneLiter.add(oneGallon));
-//    }
 
     //Checking Equal or Not For(Length to Volume)
     @Test
@@ -419,6 +387,13 @@ public class QuantityTest {
         }, oneGallon.unit.unitType + "&" + oneInch.unit.unitType + "are not be same");
     }
 
+    @Test
+    void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() {
+        Quantity oneGallon = new Quantity(1.0, Unit.GALLON);
+        Quantity anotherOneGallon = new Quantity(1.0, Unit.GALLON);
+
+        assertEquals(new Quantity(2.0, Unit.GALLON), oneGallon.add(anotherOneGallon));
+    }
 
 
 }

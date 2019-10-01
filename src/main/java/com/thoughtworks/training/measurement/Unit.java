@@ -14,6 +14,13 @@ public enum Unit {
         this.unitType = unitType;
     }
 
+    public Unit baseConverter() {
+        if (this == LITER || this == GALLON) {
+            return LITER;
+        }
+        return INCH;
+    }
+
     double conversionToBase(double value) {
         return value * conversionFactor;
     }
