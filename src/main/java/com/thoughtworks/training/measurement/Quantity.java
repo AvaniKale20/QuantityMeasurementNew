@@ -25,14 +25,8 @@ public class Quantity {
 
 
             // If my unit is a length type and other unit is a volume type then return false
-            if (this.unit.unitType.equals("LengthType") && that.unit.unitType.equals("VolumeType")) {
-                return false;
-            }
-//            if (!this.unit.unitType.equals(that.unit.unitType)) {
-//                return false;
-//            }
             // If my unit is a volume type and other unit is a length type then return false
-            if (this.unit.unitType.equals("VolumeType") && that.unit.unitType.equals("LengthType")) {
+            if (!this.unit.unitType.equals(that.unit.unitType)) {
                 return false;
             }
             return this.unit.conversionToBase(this.value) == (double) Math.round(that.unit.conversionToBase(that.value) * 100) / 100;
