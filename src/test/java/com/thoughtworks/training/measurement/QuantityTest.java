@@ -430,10 +430,20 @@ public class QuantityTest {
 
     @Test
     void givenOneKilogramAndOneKilogram_WhenAdd_ThenShouldBeReturnTwoKilogram() throws IllegalArgumentException {
-        Quantity oneKilogram = Quantity.createFoot(1.0);
-        Quantity oneKilogram1 = Quantity.createFoot(1.0);
+        Quantity oneKilogram = Quantity.createKilogram(1.0);
+        Quantity oneKilogram1 = Quantity.createKilogram(1.0);
 
-        assertEquals(Quantity.createFoot(2.0), oneKilogram.add(oneKilogram1));
+        assertEquals(Quantity.createKilogram(2.0), oneKilogram.add(oneKilogram1));
     }
+
+    @Test
+    void givenOneKilogramAndTwoKilogram_WhenEquals_ThenShouldNotBeEqual() {
+
+        Quantity oneKilogram = Quantity.createKilogram(1);
+        Quantity twoKilogram = Quantity.createKilogram(2);
+
+        assertFalse(oneKilogram.equals(twoKilogram));
+    }
+
 }
 
