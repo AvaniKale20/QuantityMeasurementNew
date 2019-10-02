@@ -418,6 +418,14 @@ public class QuantityTest {
 
         assertEquals(Quantity.createLiter(4.78), oneLiter.add(oneGallon));
     }
+//Add kg - gram
+    @Test
+    void givenOneKiloGramAndAnotherOneKiloGram_WhenEqual_ThenShouldBeReturnEqual() {
+        Quantity oneKilogram = Quantity.createKilogram(1.0);
+        Quantity oneKilogram1 = Quantity.createKilogram(1.0);
+
+        assertTrue(oneKilogram.equals(oneKilogram1));
+    }
 
 }
 

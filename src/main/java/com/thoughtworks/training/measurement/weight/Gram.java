@@ -1,9 +1,9 @@
-package com.thoughtworks.training.measurement.volume;
+package com.thoughtworks.training.measurement.weight;
 
 import com.thoughtworks.training.measurement.IUnit;
 import com.thoughtworks.training.measurement.UnitType;
 
-public class Liter implements IUnit {
+public class Gram implements IUnit {
     private double conversionFactor = 1;
 
 
@@ -19,12 +19,12 @@ public class Liter implements IUnit {
 
     @Override
     public UnitType typeOfUnit() {
-        return UnitType.volumeTypeUnit;
+        return UnitType.weightTypeUnit;
     }
 
     @Override
     public String toString() {
-        return "Liter{" +
+        return "Gram{" +
                 "conversionFactor=" + conversionFactor +
                 '}';
     }

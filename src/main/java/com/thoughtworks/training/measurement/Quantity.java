@@ -5,6 +5,8 @@ import com.thoughtworks.training.measurement.length.Inch;
 import com.thoughtworks.training.measurement.length.Yard;
 import com.thoughtworks.training.measurement.volume.Gallon;
 import com.thoughtworks.training.measurement.volume.Liter;
+import com.thoughtworks.training.measurement.weight.Gram;
+import com.thoughtworks.training.measurement.weight.KiloGram;
 
 public class Quantity {
     private final double value;
@@ -35,6 +37,14 @@ public class Quantity {
 
     static Quantity createLiter(double value) {
         return new Quantity(value, new Liter());
+    }
+
+    static Quantity createKilogram(double value) {
+        return new Quantity(value, new KiloGram());
+    }
+
+    static Quantity createGram(double value) {
+        return new Quantity(value, new Gram());
     }
 
     @Override
