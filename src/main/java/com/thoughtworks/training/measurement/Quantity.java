@@ -2,13 +2,32 @@ package com.thoughtworks.training.measurement;
 
 public class Quantity {
     private final double value;
-    public final Unit unit;
+    private final Unit unit;
 
 
     public Quantity(double value, Unit unit) {
         this.value = value;
         this.unit = unit;
 
+    }
+
+    static Quantity createFoot(double value) {
+
+        return new Quantity(value, Unit.FOOT);
+    }
+
+    static Quantity createInch(double value) {
+        return new Quantity(value, Unit.INCH);
+    }
+    static Quantity createYard(double value) {
+        return new Quantity(value, Unit.YARD);
+    }
+
+    static  Quantity createGallon(double value) {
+        return new Quantity(value, Unit.GALLON);
+    }
+    static  Quantity createLiter(double value) {
+        return new Quantity(value, Unit.LITER);
     }
 
     @Override
@@ -29,7 +48,6 @@ public class Quantity {
         }
         return false;
     }
-
 
 
     public Quantity add(Quantity other) throws IllegalArgumentException {
