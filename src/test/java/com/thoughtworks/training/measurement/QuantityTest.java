@@ -9,8 +9,8 @@ public class QuantityTest {
     @Test
     void givenZeroFoot_WhenEquals_ThenShouldBeEqual() {
 
-        Quantity zeroFoot = Quantity.createFoot(0);
-        Quantity anotherZeroFoot = Quantity.createFoot(0);
+        Quantity zeroFoot = QuantityFactory.createFoot(0);
+        Quantity anotherZeroFoot = QuantityFactory.createFoot(0);
 
         assertTrue(zeroFoot.equals(anotherZeroFoot));
     }
@@ -18,7 +18,7 @@ public class QuantityTest {
     @Test
     void givenZeroFootAndAnotherObject_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity zeroFoot = Quantity.createFoot(0);
+        Quantity zeroFoot = QuantityFactory.createFoot(0);
 
         assertFalse(zeroFoot.equals(new Object()));
     }
@@ -26,8 +26,8 @@ public class QuantityTest {
     @Test
     void givenOneFootAndTwoFoot_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneFoot = Quantity.createFoot(1);
-        Quantity twoFoot = Quantity.createFoot(2);
+        Quantity oneFoot = QuantityFactory.createFoot(1);
+        Quantity twoFoot = QuantityFactory.createFoot(2);
 
         assertFalse(oneFoot.equals(twoFoot));
     }
@@ -35,8 +35,8 @@ public class QuantityTest {
     @Test
     void givenOneFootAndOneFoot_WhenEquals_ThenShouldBeEqual() {
 
-        Quantity oneFoot = Quantity.createFoot(1.0);
-        Quantity otherFoot = Quantity.createFoot(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        Quantity otherFoot = QuantityFactory.createFoot(1.0);
 
         assertTrue(oneFoot.equals(otherFoot));
     }
@@ -44,7 +44,7 @@ public class QuantityTest {
     @Test
     void givenOneFootAndNull_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneFoot = Quantity.createFoot(1);
+        Quantity oneFoot = QuantityFactory.createFoot(1);
         Quantity twoFoot = null;
 
         assertFalse(oneFoot.equals(twoFoot));
@@ -52,15 +52,15 @@ public class QuantityTest {
 
     @Test
     void givenZeroInch_WhenCompare_ThenShouldBeEqual() {
-        Quantity zeroInch = Quantity.createInch(0);
-        Quantity anotherZeroInch = Quantity.createInch(0);
+        Quantity zeroInch = QuantityFactory.createInch(0);
+        Quantity anotherZeroInch = QuantityFactory.createInch(0);
 
         assertTrue(zeroInch.equals(anotherZeroInch));
     }
 
     @Test
     void givenZeroInchAndAnotherObject_WhenEquals_ThenShouldNotBeEqual() {
-        Quantity zeroInch = Quantity.createInch(0);
+        Quantity zeroInch = QuantityFactory.createInch(0);
 
         assertFalse(zeroInch.equals(new Object()));
     }
@@ -68,8 +68,8 @@ public class QuantityTest {
     @Test
     void givenOneFootAndOtherFoot_WhenEquals_ThenShouldBeEqual() {
 
-        Quantity oneFoot = Quantity.createFoot(1);
-        Quantity otherFoot = Quantity.createFoot(1);
+        Quantity oneFoot = QuantityFactory.createFoot(1);
+        Quantity otherFoot = QuantityFactory.createFoot(1);
 
         assertTrue(oneFoot.equals(otherFoot));
     }
@@ -77,8 +77,8 @@ public class QuantityTest {
     @Test
     void givenOneInchAndTwoInch_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneInch = Quantity.createInch(1);
-        Quantity twoInch = Quantity.createInch(2);
+        Quantity oneInch = QuantityFactory.createInch(1);
+        Quantity twoInch = QuantityFactory.createInch(2);
 
         assertFalse(oneInch.equals(twoInch));
     }
@@ -86,7 +86,7 @@ public class QuantityTest {
     @Test
     void givenOneInchAndNull_WhenEquals_ThenShouldNotBeEqual() {
 
-        Quantity oneInch = Quantity.createInch(1);
+        Quantity oneInch = QuantityFactory.createInch(1);
         Quantity twoInch = null;
 
         assertFalse(oneInch.equals(twoInch));
@@ -94,106 +94,106 @@ public class QuantityTest {
 
     @Test
     void givenOneInchOneFoot_WhenEquals_ThenShouldNotBeEqual() {
-        Quantity oneInch = Quantity.createInch(1);
-        Quantity oneFoot = Quantity.createFoot(1);
+        Quantity oneInch = QuantityFactory.createInch(1);
+        Quantity oneFoot = QuantityFactory.createFoot(1);
 
         assertFalse(oneFoot.equals(oneInch));
     }
 
     @Test
     void givenZeroInchZeroFoot_WhenEquals_ThenShouldBeEqual() {
-        Quantity zeroInch = Quantity.createInch(0);
-        Quantity zeroFoot = Quantity.createFoot(0);
+        Quantity zeroInch = QuantityFactory.createInch(0);
+        Quantity zeroFoot = QuantityFactory.createFoot(0);
 
         assertTrue(zeroFoot.equals(zeroInch));
     }
 
     @Test
     void givenTweleveInchAndOneFoot_WhenEquals_ThenShouldBeEqual() {
-        Quantity twelveInch = Quantity.createInch(12);
-        Quantity oneFoot = Quantity.createFoot(1);
+        Quantity twelveInch = QuantityFactory.createInch(12);
+        Quantity oneFoot = QuantityFactory.createFoot(1);
 
         assertTrue(oneFoot.equals(twelveInch));
     }
 
     @Test
     void givenTwentyFourInchAndTwoFeet_WhenEquals_ThenShouldBeEqual() {
-        Quantity twentyFourInch = Quantity.createInch(24);
-        Quantity twoFeet = Quantity.createFoot(2);
+        Quantity twentyFourInch = QuantityFactory.createInch(24);
+        Quantity twoFeet = QuantityFactory.createFoot(2);
 
         assertTrue(twoFeet.equals(twentyFourInch));
     }
 
     @Test
     void givenTwelveInchAndOneFeet_WhenEquals_ThenShouldBeEqual() {
-        Quantity twelveInch = Quantity.createInch(12);
-        Quantity oneFoot = Quantity.createFoot(1);
+        Quantity twelveInch = QuantityFactory.createInch(12);
+        Quantity oneFoot = QuantityFactory.createFoot(1);
 
         assertTrue(twelveInch.equals(oneFoot));
     }
 
     @Test
     void givenZeroYardAndZeroYard_WhenEquals_ThenShouldBeEqual() {
-        Quantity zeroYard = Quantity.createYard(0);
-        Quantity anotherZeroYard = Quantity.createYard(0);
+        Quantity zeroYard = QuantityFactory.createYard(0);
+        Quantity anotherZeroYard = QuantityFactory.createYard(0);
 
         assertTrue(zeroYard.equals(anotherZeroYard));
     }
 
     @Test
     void givenOneYardAndOneYard_WhenEquals_ThenShouldBeEqual() {
-        Quantity oneYard = Quantity.createYard(1);
-        Quantity anotherOneYard = Quantity.createYard(1);
+        Quantity oneYard = QuantityFactory.createYard(1);
+        Quantity anotherOneYard = QuantityFactory.createYard(1);
 
         assertTrue(oneYard.equals(anotherOneYard));
     }
 
     @Test
     void givenTwoYardAndSeventyTwoInches_WhenEquals_ThenShouldBeEqual() {
-        Quantity oneYard = Quantity.createYard(1);
-        Quantity seventyTwoInches = Quantity.createFoot(3);
+        Quantity oneYard = QuantityFactory.createYard(1);
+        Quantity seventyTwoInches = QuantityFactory.createFoot(3);
 
         assertTrue(oneYard.equals(seventyTwoInches));
     }
 
     @Test
     void givenZeroInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity zeroInch = Quantity.createInch(0.0);
-        Quantity anotherZeroInch = Quantity.createInch(0.0);
+        Quantity zeroInch = QuantityFactory.createInch(0.0);
+        Quantity anotherZeroInch = QuantityFactory.createInch(0.0);
 
-        assertEquals(Quantity.createInch(0.0), zeroInch.add(anotherZeroInch));
+        assertEquals(QuantityFactory.createInch(0.0), zeroInch.add(anotherZeroInch));
     }
 
     @Test
     void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity twoInch = Quantity.createInch(2.0);
-        Quantity anotherTwoInch = Quantity.createInch(2.0);
+        Quantity twoInch = QuantityFactory.createInch(2.0);
+        Quantity anotherTwoInch = QuantityFactory.createInch(2.0);
 
-        assertEquals(Quantity.createInch(4.0), twoInch.add(anotherTwoInch));
+        assertEquals(QuantityFactory.createInch(4.0), twoInch.add(anotherTwoInch));
     }
 
     @Test
     void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity OneFeet = Quantity.createFoot(1.0);
-        Quantity TwoInches = Quantity.createInch(2.0);
+        Quantity OneFeet = QuantityFactory.createFoot(1.0);
+        Quantity TwoInches = QuantityFactory.createInch(2.0);
 
-        assertEquals(Quantity.createInch(14.0), OneFeet.add(TwoInches));
+        assertEquals(QuantityFactory.createInch(14.0), OneFeet.add(TwoInches));
     }
 
     @Test
     void givenTwoInchesAndOneFoott_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity twoInches = Quantity.createInch(2.0);
-        Quantity oneFoot = Quantity.createFoot(1.0);
+        Quantity twoInches = QuantityFactory.createInch(2.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
 
-        assertEquals(Quantity.createInch(14.0), twoInches.add(oneFoot));
+        assertEquals(QuantityFactory.createInch(14.0), twoInches.add(oneFoot));
     }
 
     @Test
     void givenOneFootAndOneFoot_WhenAdd_ThenShouldBeReturnTwoFoot() throws IllegalArgumentException {
-        Quantity oneFoot = Quantity.createFoot(1.0);
-        Quantity oneFoot1 = Quantity.createFoot(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        Quantity oneFoot1 = QuantityFactory.createFoot(1.0);
 
-        assertEquals(Quantity.createFoot(2.0), oneFoot.add(oneFoot1));
+        assertEquals(QuantityFactory.createFoot(2.0), oneFoot.add(oneFoot1));
     }
 
     /*
@@ -202,32 +202,32 @@ public class QuantityTest {
      */
     @Test
     void givenOneGallonAndAnotherOneGallon_WhenEqual_ThenShouldBeReturnEqual() {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity anotherOneGallon = Quantity.createGallon(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity anotherOneGallon = QuantityFactory.createGallon(1.0);
 
         assertTrue(oneGallon.equals(anotherOneGallon));
     }
 
     @Test
     void givenOneLiterAndAnotherOneLiter_WheEqual_ThenShouldBeEqual() {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity anotherOneLiter = Quantity.createLiter(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity anotherOneLiter = QuantityFactory.createLiter(1.0);
 
         assertTrue(oneLiter.equals(anotherOneLiter));
     }
 
     @Test
     void givenOneLiterAndOneGallon_WhenEqual_ThenShouldNotBeEqual() {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity oneGallon = Quantity.createGallon(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
 
         assertFalse(oneLiter.equals(oneGallon));
     }
 
     @Test
     void givenOneGallonAndOneLiter_WhenEqual_ThenShouldNotBeEqual() {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity oneLiter = Quantity.createLiter(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
         assertFalse(oneGallon.equals(oneLiter));
     }
@@ -236,16 +236,16 @@ public class QuantityTest {
     //Checking Equal or Not For(Length to Volume)
     @Test
     void givenOneInchAndOneLiter_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneInch = Quantity.createInch(1.0);
-        Quantity oneLiter = Quantity.createLiter(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
         assertNotEquals(oneInch, oneLiter);
     }
 
     @Test
     void givenOneFootAndOneLiter_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneFoot = Quantity.createFoot(1.0);
-        Quantity oneLiter = Quantity.createLiter(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
 
         assertNotEquals(oneFoot, oneLiter);
@@ -254,16 +254,16 @@ public class QuantityTest {
 
     @Test
     void givenOneInchAndOneGallon_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneInch = Quantity.createInch(1.0);
-        Quantity oneGallon = Quantity.createGallon(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
 
         assertNotEquals(oneInch, oneGallon);
     }
 
     @Test
     void givenOneFootAndOneGallon_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneFoot = Quantity.createFoot(1.0);
-        Quantity oneGallon = Quantity.createGallon(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
 
         assertNotEquals(oneFoot, oneGallon);
     }
@@ -271,32 +271,32 @@ public class QuantityTest {
     //Checking Equal or Not For(volume to Length)
     @Test
     void givenOneGallonAndOneFoot_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity oneFoot = Quantity.createFoot(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
 
         assertNotEquals(oneGallon, oneFoot);
     }
 
     @Test
     void givenOneGallonAndOneInch_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity oneInch = Quantity.createInch(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
 
         assertNotEquals(oneGallon, oneInch);
     }
 
     @Test
     void givenOneLiterAndOneFoot_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity oneFoot = Quantity.createFoot(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
 
         assertNotEquals(oneLiter, oneFoot);
     }
 
     @Test
     void givenOneLiterAndOneInch_WhenEquals_ThenShouldBeNotEquals() {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity oneInch = Quantity.createInch(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
 
         assertNotEquals(oneLiter, oneInch);
     }
@@ -304,8 +304,8 @@ public class QuantityTest {
     ///Exception
     @Test
     void givenOneInchAndOneLiter_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneInch = Quantity.createInch(1.0);
-        Quantity OneLiter = Quantity.createLiter(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
+        Quantity OneLiter = QuantityFactory.createLiter(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneInch.add(OneLiter);
@@ -314,8 +314,8 @@ public class QuantityTest {
 
     @Test
     void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneFoot = Quantity.createFoot(1.0);
-        Quantity oneGallon = Quantity.createGallon(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneFoot.add(oneGallon);
@@ -324,8 +324,8 @@ public class QuantityTest {
 
     @Test
     void givenOneInchAnOneLiter_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneInch = Quantity.createInch(1.0);
-        Quantity oneLiter = Quantity.createLiter(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneInch.add(oneLiter);
@@ -334,8 +334,8 @@ public class QuantityTest {
 
     @Test
     void givenOneFootAndOneLiter_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneFoot = Quantity.createFoot(1.0);
-        Quantity oneLiter = Quantity.createLiter(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneFoot.add(oneLiter);
@@ -344,8 +344,8 @@ public class QuantityTest {
 
     @Test
     void givenOneGallonAndOneFootWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity oneFoot = Quantity.createFoot(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneGallon.add(oneFoot);
@@ -354,8 +354,8 @@ public class QuantityTest {
 
     @Test
     void givenOneLiterAndOneFootWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity oneFoot = Quantity.createFoot(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity oneFoot = QuantityFactory.createFoot(1.0);
 
 
         assertThrows(IllegalArgumentException.class, () -> {
@@ -367,8 +367,8 @@ public class QuantityTest {
 
     @Test
     void givenOneLiterAndOneInchWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity oneInch = Quantity.createInch(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneLiter.add(oneInch);
@@ -377,8 +377,8 @@ public class QuantityTest {
 
     @Test
     void givenOneGallonAndOneInchWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity oneInch = Quantity.createInch(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity oneInch = QuantityFactory.createInch(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneGallon.add(oneInch);
@@ -388,100 +388,100 @@ public class QuantityTest {
     //Adding Two unit type
     @Test
     void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity anotherOneGallon = Quantity.createGallon(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity anotherOneGallon = QuantityFactory.createGallon(1.0);
 
-        assertEquals(Quantity.createGallon(2.0), oneGallon.add(anotherOneGallon));
+        assertEquals(QuantityFactory.createGallon(2.0), oneGallon.add(anotherOneGallon));
     }
 
     @Test
     void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws IllegalArgumentException {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity anotherOneLiter = Quantity.createLiter(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity anotherOneLiter = QuantityFactory.createLiter(1.0);
 
-        assertEquals(Quantity.createLiter(2.0), oneLiter.add(anotherOneLiter));
+        assertEquals(QuantityFactory.createLiter(2.0), oneLiter.add(anotherOneLiter));
     }
 
     @Test
     void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
-        Quantity oneGallon = Quantity.createGallon(1.0);
-        Quantity oneLiter = Quantity.createLiter(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
 
-        assertEquals(Quantity.createLiter(4.78), oneGallon.add(oneLiter));
+        assertEquals(QuantityFactory.createLiter(4.78), oneGallon.add(oneLiter));
     }
 
     @Test
     void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
-        Quantity oneLiter = Quantity.createLiter(1.0);
-        Quantity oneGallon = Quantity.createGallon(1.0);
+        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        Quantity oneGallon = QuantityFactory.createGallon(1.0);
 
 
-        assertEquals(Quantity.createLiter(4.78), oneLiter.add(oneGallon));
+        assertEquals(QuantityFactory.createLiter(4.78), oneLiter.add(oneGallon));
     }
 
     //Add kg - gram
     @Test
     void givenOneKiloGramAndAnotherOneKiloGram_WhenEqual_ThenShouldBeReturnEqual() {
-        Quantity oneKilogram = Quantity.createKilogram(1.0);
-        Quantity oneKilogram1 = Quantity.createKilogram(1.0);
+        Quantity oneKilogram = QuantityFactory.createKilogram(1.0);
+        Quantity oneKilogram1 = QuantityFactory.createKilogram(1.0);
 
         assertTrue(oneKilogram.equals(oneKilogram1));
     }
 
     @Test
     void givenOneKilogramAndOneKilogram_WhenAdd_ThenShouldBeReturnTwoKilogram() throws IllegalArgumentException {
-        Quantity oneKilogram = Quantity.createKilogram(1.0);
-        Quantity oneKilogram1 = Quantity.createKilogram(1.0);
+        Quantity oneKilogram = QuantityFactory.createKilogram(1.0);
+        Quantity oneKilogram1 = QuantityFactory.createKilogram(1.0);
 
-        assertEquals(Quantity.createKilogram(2.0), oneKilogram.add(oneKilogram1));
+        assertEquals(QuantityFactory.createKilogram(2.0), oneKilogram.add(oneKilogram1));
     }
 
     @Test
     void givenOneKilogramAndTwoKilogram_WhenEquals_ThenShouldNotBeEqual() {
-        Quantity oneKilogram = Quantity.createKilogram(1);
-        Quantity twoKilogram = Quantity.createKilogram(2);
+        Quantity oneKilogram = QuantityFactory.createKilogram(1);
+        Quantity twoKilogram = QuantityFactory.createKilogram(2);
 
         assertFalse(oneKilogram.equals(twoKilogram));
     }
 
     @Test
     void givenOneGramAndAnotherOneGram_WhenEqual_ThenShouldBeReturnEqual() {
-        Quantity oneGram = Quantity.createGram(1.0);
-        Quantity oneGram1 = Quantity.createGram(1.0);
+        Quantity oneGram = QuantityFactory.createGram(1.0);
+        Quantity oneGram1 = QuantityFactory.createGram(1.0);
 
         assertTrue(oneGram.equals(oneGram1));
     }
 
     @Test
     void givenOneGramAndOneGram_WhenAdd_ThenShouldBeReturnTwoGram() throws IllegalArgumentException {
-        Quantity oneGram = Quantity.createGram(1.0);
-        Quantity oneGram1 = Quantity.createGram(1.0);
+        Quantity oneGram = QuantityFactory.createGram(1.0);
+        Quantity oneGram1 = QuantityFactory.createGram(1.0);
 
-        assertEquals(Quantity.createGram(2.0), oneGram.add(oneGram1));
+        assertEquals(QuantityFactory.createGram(2.0), oneGram.add(oneGram1));
     }
 
     @Test
     void givenOneGramAndTwoGram_WhenCheckEquals_ThenShouldNotBeEqual() {
-        Quantity oneGram = Quantity.createKilogram(1);
-        Quantity twoGram = Quantity.createKilogram(2);
+        Quantity oneGram = QuantityFactory.createKilogram(1);
+        Quantity twoGram = QuantityFactory.createKilogram(2);
 
         assertFalse(oneGram.equals(twoGram));
     }
 
     @Test
     void givenOneGramAndOneKilogram_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
-        Quantity oneGram = Quantity.createGram(1.0);
-        Quantity oneKilogram = Quantity.createKilogram(1.0);
+        Quantity oneGram = QuantityFactory.createGram(1.0);
+        Quantity oneKilogram = QuantityFactory.createKilogram(1.0);
 
-        assertEquals(Quantity.createGram(1001), oneGram.add(oneKilogram));
+        assertEquals(QuantityFactory.createGram(1001), oneGram.add(oneKilogram));
     }
 
     @Test
     void givenOneGramAndOneKilogram_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity twoGram = Quantity.createGram(2.0);
-        Quantity oneKilogram = Quantity.createKilogram(1.0);
+        Quantity twoGram = QuantityFactory.createGram(2.0);
+        Quantity oneKilogram = QuantityFactory.createKilogram(1.0);
 
-        assertEquals(Quantity.createGram(1002), twoGram.add(oneKilogram));
+        assertEquals(QuantityFactory.createGram(1002), twoGram.add(oneKilogram));
     }
 
 }

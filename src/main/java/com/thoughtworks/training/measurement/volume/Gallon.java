@@ -2,7 +2,7 @@ package com.thoughtworks.training.measurement.volume;
 
 import com.thoughtworks.training.measurement.IUnit;
 import com.thoughtworks.training.measurement.Quantity;
-import com.thoughtworks.training.measurement.length.Inch;
+import com.thoughtworks.training.measurement.QuantityFactory;
 
 public class Gallon implements IUnit {
     private double conversionFactor = 3.78;
@@ -10,7 +10,7 @@ public class Gallon implements IUnit {
 
     @Override
     public Quantity conversionToBase(double value) {
-        return Quantity.createLiter(value * conversionFactor);
+        return QuantityFactory.createLiter(value * conversionFactor);
     }
 
 
