@@ -476,5 +476,13 @@ public class QuantityTest {
         assertEquals(Quantity.createGram(1001), oneGram.add(oneKilogram));
     }
 
+    @Test
+    void givenOneGramAndOneKilogram_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
+        Quantity twoGram = Quantity.createGram(2.0);
+        Quantity oneKilogram = Quantity.createKilogram(1.0);
+
+        assertEquals(Quantity.createGram(1002), twoGram.add(oneKilogram));
+    }
+
 }
 
