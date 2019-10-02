@@ -438,7 +438,6 @@ public class QuantityTest {
 
     @Test
     void givenOneKilogramAndTwoKilogram_WhenEquals_ThenShouldNotBeEqual() {
-
         Quantity oneKilogram = Quantity.createKilogram(1);
         Quantity twoKilogram = Quantity.createKilogram(2);
 
@@ -456,9 +455,17 @@ public class QuantityTest {
     @Test
     void givenOneGramAndOneGram_WhenAdd_ThenShouldBeReturnTwoGram() throws IllegalArgumentException {
         Quantity oneGram = Quantity.createGram(1.0);
-        Quantity twoGram1 = Quantity.createGram(1.0);
+        Quantity oneGram1 = Quantity.createGram(1.0);
 
-        assertEquals(Quantity.createGram(2.0), oneGram.add(twoGram1));
+        assertEquals(Quantity.createGram(2.0), oneGram.add(oneGram1));
+    }
+
+    @Test
+    void givenOneGramAndTwoGram_WhenCheckEquals_ThenShouldNotBeEqual() {
+        Quantity oneGram = Quantity.createKilogram(1);
+        Quantity twoGram = Quantity.createKilogram(2);
+
+        assertFalse(oneGram.equals(twoGram));
     }
 
 }
