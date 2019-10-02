@@ -19,31 +19,31 @@ public class Quantity {
 
     }
 
-    static Quantity createFoot(double value) {
+    public static Quantity createFoot(double value) {
         return new Quantity(value, new Foot());
     }
 
-    static Quantity createInch(double value) {
+    public static Quantity createInch(double value) {
         return new Quantity(value, new Inch());
     }
 
-    static Quantity createYard(double value) {
+    public static Quantity createYard(double value) {
         return new Quantity(value, new Yard());
     }
 
-    static Quantity createGallon(double value) {
+    public static Quantity createGallon(double value) {
         return new Quantity(value, new Gallon());
     }
 
-    static Quantity createLiter(double value) {
+    public static Quantity createLiter(double value) {
         return new Quantity(value, new Liter());
     }
 
-    static Quantity createKilogram(double value) {
+    public static Quantity createKilogram(double value) {
         return new Quantity(value, new KiloGram());
     }
 
-    static Quantity createGram(double value) {
+    public static Quantity createGram(double value) {
         return new Quantity(value, new Gram());
     }
 
@@ -55,15 +55,11 @@ public class Quantity {
 
         if (other instanceof Quantity) {
             Quantity that = (Quantity) other;
-            // If my unit is a length type and other unit is a volume type then return false
-            // If my unit is a volume type and other unit is a length type then return false
 
-            if (!this.unit.typeOfUnit().equals(that.unit.typeOfUnit())) {
-                return false;
-            }
-            double thisValue = this.unit.conversionToBase(this.value);
-            double thatValue = (double) Math.round(that.unit.conversionToBase(that.value) * 100) / 100;
-            return thisValue == thatValue;
+            Quantity typeConvert = unit.conversionToBase(value);
+            Quantity typeConvertTwo = that.unit.conversionToBase(that.value);
+
+            return Math.abs(typeConvert.value - typeConvertTwo.value) <= 0.01 && (typeConvert.unit.equals(typeConvertTwo.unit));
         }
         return false;
     }
@@ -71,10 +67,13 @@ public class Quantity {
 
     public Quantity add(Quantity other) throws IllegalArgumentException {
         {
-            if (!this.unit.typeOfUnit().equals(other.unit.typeOfUnit())) {
-                throw new IllegalArgumentException(this.unit.typeOfUnit() + "&" + other.unit.typeOfUnit() + "are not be same");
+            Quantity thisBase = unit.conversionToBase(value);
+            Quantity thatBase = other.unit.conversionToBase(other.value);
+
+            if (!(thisBase.unit.equals(thatBase.unit))) {
+                throw new IllegalArgumentException(thisBase.unit + "&" + thatBase.unit + "are not be same");
             }
-            return new Quantity(this.unit.conversionToBase(this.value) + other.unit.conversionToBase(other.value), unit.baseUnit());
+            return new Quantity(thisBase.value + thatBase.value, thisBase.unit);
         }
     }
 

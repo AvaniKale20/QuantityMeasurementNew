@@ -1,25 +1,22 @@
 package com.thoughtworks.training.measurement.volume;
 
 import com.thoughtworks.training.measurement.IUnit;
-import com.thoughtworks.training.measurement.UnitType;
+import com.thoughtworks.training.measurement.Quantity;
+import com.thoughtworks.training.measurement.length.Inch;
 
 public class Liter implements IUnit {
     private double conversionFactor = 1;
 
-
     @Override
-    public double conversionToBase(double value) {
-        return value * conversionFactor;
+    public Quantity conversionToBase(double value) {
+        return Quantity.createLiter(value * conversionFactor);
     }
 
-    @Override
-    public IUnit baseUnit() {
-        return this;
-    }
 
     @Override
-    public UnitType typeOfUnit() {
-        return UnitType.volumeTypeUnit;
+    public boolean equals(Object object) {
+        return object instanceof Liter;
+
     }
 
     @Override

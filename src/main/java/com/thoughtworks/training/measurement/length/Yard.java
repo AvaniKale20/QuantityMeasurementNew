@@ -1,25 +1,20 @@
 package com.thoughtworks.training.measurement.length;
 
 import com.thoughtworks.training.measurement.IUnit;
-import com.thoughtworks.training.measurement.UnitType;
+import com.thoughtworks.training.measurement.Quantity;
 
 public class Yard implements IUnit {
     private double conversionFactor = 36;
 
-
     @Override
-    public double conversionToBase(double value) {
-        return value * conversionFactor;
+    public Quantity conversionToBase(double value) {
+        return Quantity.createInch(value * conversionFactor);
     }
 
     @Override
-    public IUnit baseUnit() {
-        return new Inch();
-    }
+    public boolean equals(Object object) {
+        return object instanceof Yard;
 
-    @Override
-    public UnitType typeOfUnit() {
-        return UnitType.lengthTypeUnit;
     }
 
     @Override
