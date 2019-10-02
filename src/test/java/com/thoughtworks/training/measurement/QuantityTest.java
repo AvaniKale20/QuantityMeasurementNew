@@ -418,7 +418,8 @@ public class QuantityTest {
 
         assertEquals(Quantity.createLiter(4.78), oneLiter.add(oneGallon));
     }
-//Add kg - gram
+
+    //Add kg - gram
     @Test
     void givenOneKiloGramAndAnotherOneKiloGram_WhenEqual_ThenShouldBeReturnEqual() {
         Quantity oneKilogram = Quantity.createKilogram(1.0);
@@ -427,5 +428,12 @@ public class QuantityTest {
         assertTrue(oneKilogram.equals(oneKilogram1));
     }
 
+    @Test
+    void givenOneKilogramAndOneKilogram_WhenAdd_ThenShouldBeReturnTwoKilogram() throws IllegalArgumentException {
+        Quantity oneKilogram = Quantity.createFoot(1.0);
+        Quantity oneKilogram1 = Quantity.createFoot(1.0);
+
+        assertEquals(Quantity.createFoot(2.0), oneKilogram.add(oneKilogram1));
+    }
 }
 
