@@ -444,6 +444,13 @@ public class QuantityTest {
 
         assertFalse(oneKilogram.equals(twoKilogram));
     }
+    @Test
+    void givenOneGramAndAnotherOneGram_WhenEqual_ThenShouldBeReturnEqual() {
+        Quantity oneGram = Quantity.createGram(1.0);
+        Quantity oneGram1 = Quantity.createGram(1.0);
+
+        assertTrue(oneGram.equals(oneGram1));
+    }
 
 }
 
