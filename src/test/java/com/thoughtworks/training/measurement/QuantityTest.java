@@ -1,5 +1,6 @@
 package com.thoughtworks.training.measurement;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -158,40 +159,40 @@ public class QuantityTest {
 
     @Test
     void givenZeroInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity zeroInch = QuantityFactory.createInch(0.0);
-        Quantity anotherZeroInch = QuantityFactory.createInch(0.0);
+        AddableQuantity zeroInch = QuantityFactory.createInch(0.0);
+        AddableQuantity anotherZeroInch = QuantityFactory.createInch(0.0);
 
         assertEquals(QuantityFactory.createInch(0.0), zeroInch.add(anotherZeroInch));
     }
 
     @Test
     void givenTwoInchAndZeroInch_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity twoInch = QuantityFactory.createInch(2.0);
-        Quantity anotherTwoInch = QuantityFactory.createInch(2.0);
+        AddableQuantity twoInch = QuantityFactory.createInch(2.0);
+        AddableQuantity anotherTwoInch = QuantityFactory.createInch(2.0);
 
         assertEquals(QuantityFactory.createInch(4.0), twoInch.add(anotherTwoInch));
     }
 
     @Test
     void givenOneFeetAndTwoInches_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity OneFeet = QuantityFactory.createFoot(1.0);
-        Quantity TwoInches = QuantityFactory.createInch(2.0);
+        AddableQuantity OneFeet = QuantityFactory.createFoot(1.0);
+        AddableQuantity TwoInches = QuantityFactory.createInch(2.0);
 
         assertEquals(QuantityFactory.createInch(14.0), OneFeet.add(TwoInches));
     }
 
     @Test
     void givenTwoInchesAndOneFoott_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity twoInches = QuantityFactory.createInch(2.0);
-        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        AddableQuantity twoInches = QuantityFactory.createInch(2.0);
+        AddableQuantity oneFoot = QuantityFactory.createFoot(1.0);
 
         assertEquals(QuantityFactory.createInch(14.0), twoInches.add(oneFoot));
     }
 
     @Test
     void givenOneFootAndOneFoot_WhenAdd_ThenShouldBeReturnTwoFoot() throws IllegalArgumentException {
-        Quantity oneFoot = QuantityFactory.createFoot(1.0);
-        Quantity oneFoot1 = QuantityFactory.createFoot(1.0);
+        AddableQuantity oneFoot = QuantityFactory.createFoot(1.0);
+        AddableQuantity oneFoot1 = QuantityFactory.createFoot(1.0);
 
         assertEquals(QuantityFactory.createFoot(2.0), oneFoot.add(oneFoot1));
     }
@@ -304,8 +305,8 @@ public class QuantityTest {
     ///Exception
     @Test
     void givenOneInchAndOneLiter_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneInch = QuantityFactory.createInch(1.0);
-        Quantity OneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneInch = QuantityFactory.createInch(1.0);
+        AddableQuantity OneLiter = QuantityFactory.createLiter(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneInch.add(OneLiter);
@@ -314,8 +315,8 @@ public class QuantityTest {
 
     @Test
     void givenOneFootAndOneGallon_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneFoot = QuantityFactory.createFoot(1.0);
-        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        AddableQuantity oneFoot = QuantityFactory.createFoot(1.0);
+        AddableQuantity oneGallon = QuantityFactory.createGallon(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneFoot.add(oneGallon);
@@ -324,8 +325,8 @@ public class QuantityTest {
 
     @Test
     void givenOneInchAnOneLiter_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneInch = QuantityFactory.createInch(1.0);
-        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneInch = QuantityFactory.createInch(1.0);
+        AddableQuantity oneLiter = QuantityFactory.createLiter(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneInch.add(oneLiter);
@@ -334,8 +335,8 @@ public class QuantityTest {
 
     @Test
     void givenOneFootAndOneLiter_WhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneFoot = QuantityFactory.createFoot(1.0);
-        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneFoot = QuantityFactory.createFoot(1.0);
+        AddableQuantity oneLiter = QuantityFactory.createLiter(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneFoot.add(oneLiter);
@@ -344,8 +345,8 @@ public class QuantityTest {
 
     @Test
     void givenOneGallonAndOneFootWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneGallon = QuantityFactory.createGallon(1.0);
-        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        AddableQuantity oneGallon = QuantityFactory.createGallon(1.0);
+        AddableQuantity oneFoot = QuantityFactory.createFoot(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneGallon.add(oneFoot);
@@ -354,8 +355,8 @@ public class QuantityTest {
 
     @Test
     void givenOneLiterAndOneFootWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneLiter = QuantityFactory.createLiter(1.0);
-        Quantity oneFoot = QuantityFactory.createFoot(1.0);
+        AddableQuantity oneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneFoot = QuantityFactory.createFoot(1.0);
 
 
         assertThrows(IllegalArgumentException.class, () -> {
@@ -367,8 +368,8 @@ public class QuantityTest {
 
     @Test
     void givenOneLiterAndOneInchWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneLiter = QuantityFactory.createLiter(1.0);
-        Quantity oneInch = QuantityFactory.createInch(1.0);
+        AddableQuantity oneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneInch = QuantityFactory.createInch(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneLiter.add(oneInch);
@@ -377,8 +378,8 @@ public class QuantityTest {
 
     @Test
     void givenOneGallonAndOneInchWhenAdd_ThenShouldNotBeAdded() {
-        Quantity oneGallon = QuantityFactory.createGallon(1.0);
-        Quantity oneInch = QuantityFactory.createInch(1.0);
+        AddableQuantity oneGallon = QuantityFactory.createGallon(1.0);
+        AddableQuantity oneInch = QuantityFactory.createInch(1.0);
 
         assertThrows(IllegalArgumentException.class, () -> {
             oneGallon.add(oneInch);
@@ -388,32 +389,32 @@ public class QuantityTest {
     //Adding Two unit type
     @Test
     void givenOneGallonAndAnotherOneGallon_WhenAdd_ThenShouldBeReturnOneGallon() {
-        Quantity oneGallon = QuantityFactory.createGallon(1.0);
-        Quantity anotherOneGallon = QuantityFactory.createGallon(1.0);
+        AddableQuantity oneGallon = QuantityFactory.createGallon(1.0);
+        AddableQuantity anotherOneGallon = QuantityFactory.createGallon(1.0);
 
         assertEquals(QuantityFactory.createGallon(2.0), oneGallon.add(anotherOneGallon));
     }
 
     @Test
     void givenOneLiterAndAnotherOneLiter_WhenAdd_ThenShouldBeReturnOneLiter() throws IllegalArgumentException {
-        Quantity oneLiter = QuantityFactory.createLiter(1.0);
-        Quantity anotherOneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity anotherOneLiter = QuantityFactory.createLiter(1.0);
 
         assertEquals(QuantityFactory.createLiter(2.0), oneLiter.add(anotherOneLiter));
     }
 
     @Test
     void givenOneGallonAndOneLiter_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
-        Quantity oneGallon = QuantityFactory.createGallon(1.0);
-        Quantity oneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneGallon = QuantityFactory.createGallon(1.0);
+        AddableQuantity oneLiter = QuantityFactory.createLiter(1.0);
 
         assertEquals(QuantityFactory.createLiter(4.78), oneGallon.add(oneLiter));
     }
 
     @Test
     void givenOneLiterAndOneGallon_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
-        Quantity oneLiter = QuantityFactory.createLiter(1.0);
-        Quantity oneGallon = QuantityFactory.createGallon(1.0);
+        AddableQuantity oneLiter = QuantityFactory.createLiter(1.0);
+        AddableQuantity oneGallon = QuantityFactory.createGallon(1.0);
 
 
         assertEquals(QuantityFactory.createLiter(4.78), oneLiter.add(oneGallon));
@@ -430,8 +431,8 @@ public class QuantityTest {
 
     @Test
     void givenOneKilogramAndOneKilogram_WhenAdd_ThenShouldBeReturnTwoKilogram() throws IllegalArgumentException {
-        Quantity oneKilogram = QuantityFactory.createKilogram(1.0);
-        Quantity oneKilogram1 = QuantityFactory.createKilogram(1.0);
+        AddableQuantity oneKilogram = QuantityFactory.createKilogram(1.0);
+        AddableQuantity oneKilogram1 = QuantityFactory.createKilogram(1.0);
 
         assertEquals(QuantityFactory.createKilogram(2.0), oneKilogram.add(oneKilogram1));
     }
@@ -454,8 +455,8 @@ public class QuantityTest {
 
     @Test
     void givenOneGramAndOneGram_WhenAdd_ThenShouldBeReturnTwoGram() throws IllegalArgumentException {
-        Quantity oneGram = QuantityFactory.createGram(1.0);
-        Quantity oneGram1 = QuantityFactory.createGram(1.0);
+        AddableQuantity oneGram = QuantityFactory.createGram(1.0);
+        AddableQuantity oneGram1 = QuantityFactory.createGram(1.0);
 
         assertEquals(QuantityFactory.createGram(2.0), oneGram.add(oneGram1));
     }
@@ -470,19 +471,31 @@ public class QuantityTest {
 
     @Test
     void givenOneGramAndOneKilogram_WhenAdd_ThenShouldBeReturnFourPointSevenEight() throws IllegalArgumentException {
-        Quantity oneGram = QuantityFactory.createGram(1.0);
-        Quantity oneKilogram = QuantityFactory.createKilogram(1.0);
+        AddableQuantity oneGram = QuantityFactory.createGram(1.0);
+        AddableQuantity oneKilogram = QuantityFactory.createKilogram(1.0);
 
         assertEquals(QuantityFactory.createGram(1001), oneGram.add(oneKilogram));
     }
 
     @Test
     void givenOneGramAndOneKilogram_WhenAdd_ThenShouldBeFourInches() throws IllegalArgumentException {
-        Quantity twoGram = QuantityFactory.createGram(2.0);
-        Quantity oneKilogram = QuantityFactory.createKilogram(1.0);
+        AddableQuantity twoGram = QuantityFactory.createGram(2.0);
+        AddableQuantity oneKilogram = QuantityFactory.createKilogram(1.0);
 
         assertEquals(QuantityFactory.createGram(1002), twoGram.add(oneKilogram));
     }
 
+    @Nested
+    public class CelsiusAndFahrenheit {
+
+        @Test
+        void givenZeroFahrenheitAndAndZeroCelsius_WhenEqual_ThenShouldNotBeEqual() {
+            Quantity zeroFahrenheit = QuantityFactory.createFahrenheit(0);
+            Quantity zeroCelsius = QuantityFactory.createCelsius(0);
+
+            assertNotEquals(zeroFahrenheit, zeroCelsius);
+        }
+
+    }
 }
 
