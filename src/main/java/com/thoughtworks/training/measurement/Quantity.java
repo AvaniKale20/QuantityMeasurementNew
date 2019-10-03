@@ -4,13 +4,10 @@ public class Quantity {
     protected final double value;
     protected final IUnit unit;
 
-
     protected Quantity(double value, IUnit unit) {
         this.value = value;
         this.unit = unit;
-
     }
-
 
     @Override
     public boolean equals(Object other) {
@@ -28,19 +25,6 @@ public class Quantity {
         }
         return false;
     }
-
-
-//    public Quantity add(Quantity other) throws IllegalArgumentException {
-//        {
-//            Quantity thisBase = unit.conversionToBase(value);
-//            Quantity thatBase = other.unit.conversionToBase(other.value);
-//
-//            if (!(thisBase.unit.equals(thatBase.unit))) {
-//                throw new IllegalArgumentException(thisBase.unit + "&" + thatBase.unit + "are not be same");
-//            }
-//            return new Quantity(thisBase.value + thatBase.value, thisBase.unit);
-//        }
-//    }
 
     @Override
     public String toString() {

@@ -7,15 +7,13 @@ public class AddableQuantity extends Quantity {
     }
 
     public AddableQuantity add(AddableQuantity other) throws IllegalArgumentException {
-        {
-            AddableQuantity thisBase = (AddableQuantity) unit.conversionToBase(value);
-            AddableQuantity thatBase = (AddableQuantity) other.unit.conversionToBase(other.value);
+        AddableQuantity thisBase = (AddableQuantity) unit.conversionToBase(value);
+        AddableQuantity thatBase = (AddableQuantity) other.unit.conversionToBase(other.value);
 
-            if (!(thisBase.unit.equals(thatBase.unit))) {
-                throw new IllegalArgumentException(thisBase.unit + "&" + thatBase.unit + "are not be same");
-            }
-            return new AddableQuantity(thisBase.value + thatBase.value, thisBase.unit);
+        if (!(thisBase.unit.equals(thatBase.unit))) {
+            throw new IllegalArgumentException(thisBase.unit + "&" + thatBase.unit + "are not be same");
         }
+        return new AddableQuantity(thisBase.value + thatBase.value, thisBase.unit);
     }
 
     @Override
