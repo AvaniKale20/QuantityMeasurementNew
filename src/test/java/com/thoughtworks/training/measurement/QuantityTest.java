@@ -496,6 +496,14 @@ public class QuantityTest {
             assertNotEquals(zeroFahrenheit, zeroCelsius);
         }
 
+        @Test
+        void givenZeroCelsiusAndThirtyTwoFahrenhite_WhenEqual_ThenShouldBeEqual() {
+            Quantity zeroFahrenheit = QuantityFactory.createFahrenheit(32);
+            Quantity zeroCelsius = QuantityFactory.createCelsius(0);
+
+            assertEquals(zeroFahrenheit, zeroCelsius);
+        }
+
     }
 }
 
